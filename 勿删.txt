@@ -110,3 +110,34 @@ cd /c/Users/Administrator/Desktop/my-portfolio-website
 git add .
 git commit -m "Update changes"
 git push
+
+		* 添加微信等联系方式：
+
+ 在 About 页面添加微信/WhatsApp 联系链接。
+
+首先让我查看一下 About 页面的当前内容：
+现在我来添加微信和 WhatsApp 的联系方式链接：
+完成！我已经在 About 页面添加了微信和 WhatsApp 联系方式。以下是添加的功能：
+
+## 新增内容：
+
+### WhatsApp 链接
+- **WhatsApp 按钮**：点击打开 WhatsApp 聊天
+- **WhatsApp Chat 按钮**：带预填消息的链接
+- 格式：`https://wa.me/你的电话号码`
+
+### 微信显示
+- 显示您的微信 ID（示例：`YourWeChatID`）
+- 用户可以直接复制或扫描二维码添加您
+
+## 如何修改为您的信息：
+
+1. **WhatsApp**：将 `1234567890` 替换为您的电话号码（国际格式，无需 `+`）
+2. **微信 ID**：将 `YourWeChatID` 替换为您的真实微信 ID
+3. **其他平台**：更新 Twitter、Instagram、YouTube 和 Email 的链接
+
+## WhatsApp 链接格式说明：
+- 基础链接：`https://wa.me/1234567890`
+- 带预填消息：`https://wa.me/1234567890?text=你的消息`（需要 URL 编码）
+
+如果需要将您的真实联系方式填入，请告诉我您的电话号码和微信 ID，我可以帮您更新！

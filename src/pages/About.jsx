@@ -53,18 +53,31 @@ function About() {
                 I'd love to hear from you! Feel free to reach out through any of these platforms:
               </p>
               <div className="flex flex-wrap gap-4">
-                <a href="#" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-full transition-colors">
+                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-green-600 hover:bg-green-700 rounded-full transition-colors">
+                  WhatsApp
+                </a>
+                <a href="https://wa.me/1234567890?text=Hello%20from%20your%20website!" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-green-600 hover:bg-green-700 rounded-full transition-colors">
+                  WhatsApp Chat
+                </a>
+                <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-full transition-colors">
                   Twitter
                 </a>
-                <a href="#" className="px-6 py-3 bg-pink-600 hover:bg-pink-700 rounded-full transition-colors">
+                <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-pink-600 hover:bg-pink-700 rounded-full transition-colors">
                   Instagram
                 </a>
-                <a href="#" className="px-6 py-3 bg-red-600 hover:bg-red-700 rounded-full transition-colors">
+                <a href="https://youtube.com/yourchannel" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-red-600 hover:bg-red-700 rounded-full transition-colors">
                   YouTube
                 </a>
-                <a href="#" className="px-6 py-3 bg-gray-600 hover:bg-gray-700 rounded-full transition-colors">
+                <a href="mailto:your.email@example.com" className="px-6 py-3 bg-gray-600 hover:bg-gray-700 rounded-full transition-colors">
                   Email
                 </a>
+              </div>
+              <div className="mt-6 p-4 bg-white/5 rounded-xl border border-white/10">
+                <p className="text-sm text-gray-400 mb-2">📱 Add me on WeChat:</p>
+                <div className="flex items-center gap-4">
+                  <span className="text-2xl font-mono bg-green-700 px-4 py-2 rounded-lg">YourWeChatID</span>
+                  <p className="text-sm text-gray-400">Scan or add my WeChat ID directly</p>
+                </div>
               </div>
             </section>
           </div>
