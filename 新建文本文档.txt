@@ -1,0 +1,112 @@
+
+安装： node ， 安装：git后：
+
+
+这是一个使用 Vite + React 构建的项目。运行网站的方法：
+
+在终端中执行以下命令：
+
+cd /c/Users/Administrator/Desktop/my-portfolio-website
+（或直接用一行命令： 
+cd /c/Users/Administrator/Desktop/my-portfolio-website && npm run dev
+）
+
+bash
+npm run dev
+然后打开浏览器访问显示的本地地址（通常是 http://localhost:5173）。
+
+其他可用命令：
+
+npm run build - 构建生产版本
+npm run preview - 预览生产版本
+
+------------------------
+*****   `npm run build` 会生成一个 `dist` 文件夹，里面包含多个文件（HTML、CSS、JS 等），需要通过 Web 服务器来运行，不能直接双击打开。
+
+**如果你想要：**
+- **双击直接运行** - 不太适合 React 项目，因为浏览器安全限制不允许直接打开 React 应用
+- **发布到网上** - 可以用 `npm run build`，然后把 `dist` 文件夹部署到 Netlify、Vercel、GitHub Pages 等
+
+**预览构建结果：**
+```bash
+npm run preview
+```
+这会在本地启动一个服务器预览生产版本。
+
+-------------
+		*改标题： 在 src/components/Header.jsx 文件 
+		*改背景色：在 src/index.css 文件 
+
+index.cssL12-L12
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+这是页面背景的渐变色。你可以修改这里的颜色值来改变背景：
+
+单色：background: #1a1a2e;
+渐变：background: linear-gradient(方向, 颜色1, 颜色2);
+例如改成黑色：
+
+css
+background: #000000;
+
+		*放视频： 
+在 src/pages/Vlogs.jsx 文件中，第 3-10 行定义了视频列表：
+const vlogs = [
+  { id: 1, title: 'My First Vlog', thumbnail: 'https://via.placeholder.com/600x340?text=Vlog+1', url: 'https://www.youtube.com/embed/dQw4w9WgXcQ' },
+  { id: 2, title: 'Daily Life', thumbnail: 'https://via.placeholder.com/600x340?text=Vlog+2', url: 'https://www.youtube.com/embed/dQw4w9WgXcQ' },
+  // ... more videos
+]
+
+**两种方式添加自己的视频：**
+
+### 方式 1：使用 YouTube 链接（推荐）
+1. 将视频上传到 YouTube
+2. 获取视频的嵌入链接，格式为：`https://www.youtube.com/embed/视频ID`
+3. 修改上述代码中的 `url` 值
+
+### 方式 2：使用本地视频文件
+1. 把视频文件放入 `public` 文件夹（如 `public/videos/myvideo.mp4`）
+2. 修改代码：
+```jsx
+{ id: 1, title: 'My First Vlog', url: '/videos/myvideo.mp4' }
+```
+
+3. 修改第 32-37 行的 iframe 为 video 标签：
+```jsx
+<video src={selectedVlog.url} controls className="w-full h-full rounded-2xl" />
+```
+ 
+		*初始化git：
+ 项目还没有初始化 Git时。以下是基本 Git 使用方法：
+
+**初始化项目（第一次）：**
+```bash
+cd /c/Users/Administrator/Desktop/my-portfolio-website
+git init
+git add .
+git commit -m "Initial commit"
+```
+
+**常用命令：**
+| 命令 | 作用 |
+|------|------|
+| `git status` | 查看文件状态 |
+| `git add .` | 添加所有修改 |
+| `git commit -m "信息"` | 提交修改 |
+| `git log` | 查看提交历史 |
+| `git push` | 推送到远程仓库 |
+| `git pull` | 拉取远程更新 |
+
+********关联 GitHub：**
+```bash
+git remote add origin https://github.com/你的用户名/仓库名.git
+git push -u origin master
+```
+ 
+
+如果已经在项目目录有 Git 仓库，想推送更新：
+
+bash
+cd /c/Users/Administrator/Desktop/my-portfolio-website
+git add .
+git commit -m "Update changes"
+git push

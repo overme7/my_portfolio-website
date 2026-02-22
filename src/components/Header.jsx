@@ -6,7 +6,7 @@ function Header() {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-            My Portfolio
+            Live with Culture 
           </Link>
           <div className="flex space-x-8">
             <Link to="/" className="hover:text-purple-400 transition-colors">Home</Link>
