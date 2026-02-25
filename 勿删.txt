@@ -1,4 +1,6 @@
 
+JM:
+
 安装： node ， 安装：git后：
 
 
@@ -141,3 +143,23 @@ git push
 - 带预填消息：`https://wa.me/1234567890?text=你的消息`（需要 URL 编码）
 
 如果需要将您的真实联系方式填入，请告诉我您的电话号码和微信 ID，我可以帮您更新！
+
+
+*****2026-02-27 jm:
+关键问题: Node 是通过 nvm 安装的，路径是 /Users/Jim_Wong/.nvm/versions/node/v22.16.0/bin。
+
+nvm 的初始化配置在 .zshrc 或 .zprofile 中，但 VS Code 终端没有加载这些文件。
+
+解决方案
+：修改 VS Code 配置（推荐）
+在 settings.json 中添加/修改：
+
+json
+"terminal.integrated.profiles.osx": {
+    "zsh": {
+        "path": "/bin/zsh",
+        "args": ["-l"]
+    }
+},
+"terminal.integrated.defaultProfile.osx": "zsh"
+保存后，完全关闭 VS Code 终端（🗑️），重新打开
