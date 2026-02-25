@@ -23,7 +23,7 @@ npm run build - 构建生产版本
 npm run preview - 预览生产版本
 
 ------------------------
-*****   `npm run build` 会生成一个 `dist` 文件夹，里面包含多个文件（HTML、CSS、JS 等），需要通过 Web 服务器来运行，不能直接双击打开。
+*****************************   `npm run build` 会生成一个 `dist` 文件夹，里面包含多个文件（HTML、CSS、JS 等），需要通过 Web 服务器来运行，不能直接双击打开。
 
 **如果你想要：**
 - **双击直接运行** - 不太适合 React 项目，因为浏览器安全限制不允许直接打开 React 应用
@@ -98,7 +98,7 @@ git commit -m "Initial commit"
 | `git push` | 推送到远程仓库 |
 | `git pull` | 拉取远程更新 |
 
-********关联 GitHub：**
+********************************************************关联 GitHub：**
 ```bash
 git remote add origin https://github.com/你的用户名/仓库名.git
 git push -u origin master
@@ -145,7 +145,7 @@ git push
 如果需要将您的真实联系方式填入，请告诉我您的电话号码和微信 ID，我可以帮您更新！
 
 
-*****2026-02-27 jm:
+*****************************2026-02-27 jm:
 关键问题: Node 是通过 nvm 安装的，路径是 /Users/Jim_Wong/.nvm/versions/node/v22.16.0/bin。
 
 nvm 的初始化配置在 .zshrc 或 .zprofile 中，但 VS Code 终端没有加载这些文件。
@@ -164,7 +164,7 @@ json
 "terminal.integrated.defaultProfile.osx": "zsh"
 保存后，完全关闭 VS Code 终端（🗑️），重新打开
 
-*****
+*****************************
 假设你只修改了 src/components/Header.jsx 文件：
 
 bash
@@ -179,7 +179,7 @@ git push
 这样就完成了对单个文件的更新！远程仓库中只会同步这个文件的变更。
 
 
-****
+****************************************************************************************************************************************************************************************************
 
 将所有文件的更改推送到 Git 远程仓库（例如 GitHub），仅仅执行 git push 是不够的。你需要按照以下步骤操作：
 
@@ -206,5 +206,45 @@ bash
 git push -u origin main
 （假设默认分支是 main，如果是 master，则替换为 master）
 
-*****
+*****************************
 
+首次推送：
+如果是第一次推送整个项目，确保远程仓库为空，或者使用：
+
+bash
+git push -u origin main
+
+*****************************
+
+完整的命令很麻烦，可以设置 Git 别名来简化操作。例如，在终端中运行：
+
+bash
+git config --global alias.acp '!git add . && git commit -m "$1" && git push'
+之后，你可以用一条命令完成全部操作：
+
+bash
+git acp "Update Header component"
+
+*****************************
+
+(错误做法：修改文件后直接 git push。
+✅ 正确做法：修改文件 → git add → git commit → git push。
+每次修改都需要重新走一遍完整的流程，这样才能确保 Git 正确记录和同步你的更改！)
+
+*****************************
+
+GitHub ( 小黑猫）：由 Microsoft 拥有，是全球最流行的代码托管平台。
+GitCode.com(红G白底标):开源代码托管平台，类似于 GitHub 或 GitLab,面向国际开发者。
+GitCode.net(红G透明标,csdn 的分支服务）：由中国的 Gitee（码云）团队推出，主要面向国内开发者。
+2. 服务器位置
+GitHub：服务器主要位于海外（美国等），在中国大陆访问可能较慢或不稳定。
+GitCode：服务器位于中国境内，访问速度更快，更适合国内用户。
+
+gitcode.com 和 gitcode.net
+gitcode.net 实际上就是 CSDN 提供的代码托管服务的一部分。
+
+*****************************
+
+ctrl+c ( to stop cloning )
+
+*****************************
