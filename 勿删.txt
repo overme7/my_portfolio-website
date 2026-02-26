@@ -298,7 +298,7 @@ git push gitcode main
 
 *****************************
 
-( Or to push all changes at once:
+    ( Or to push all changes at once:
 ```bash
 git push gitcode main
 ```
@@ -307,4 +307,16 @@ If you haven't pushed before and created the remote, add it:
 ```bash
 git remote add gitcode https://gitcode.com/overme7/my_portfolio-website.git
 git push -u gitcode main )
-```
+••••••••••••
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   1. 构建项目    │ →  │  2. 选择托管平台   │ →  │  3. 绑定域名    │
+│  (npm run build) │    │  (Vercel/Netlify等)│    │  (可选但推荐)   │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+
+••••••••••••
+
+ # 构建生产版本
+npm run build
+
+# 本地预览构建结果
+npm run preview
