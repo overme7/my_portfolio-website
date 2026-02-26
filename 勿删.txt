@@ -453,3 +453,8 @@ git status
 git add .
 git commit -m "your commit message"
 git push origin main
+
+(pull github repo)
+git pull origin main
+(pull gitcode repo)
+git pull gitcode main
