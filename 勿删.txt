@@ -281,9 +281,9 @@ jsx
 GitCode.com/overme7/my-portfolio-website.git
 
 *****************************
-To renew/update your repository on GitCode.com from local changes:
+FINALLY: To renew/update your repository on GitCode.com from local changes:
 
-```bash
+
 # 1. Check current status
 git status
 
@@ -295,9 +295,10 @@ git commit -m "your commit message"
 
 # 4. Push to GitCode
 git push gitcode main
-```
 
-Or to push all changes at once:
+*****************************
+
+( Or to push all changes at once:
 ```bash
 git push gitcode main
 ```
@@ -305,5 +306,5 @@ git push gitcode main
 If you haven't pushed before and created the remote, add it:
 ```bash
 git remote add gitcode https://gitcode.com/overme7/my_portfolio-website.git
-git push -u gitcode main
+git push -u gitcode main )
 ```
