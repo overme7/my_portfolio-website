@@ -441,8 +441,14 @@ git push -u gitcode main )
 npm run build
 npm run preview
 
-#renew :
+(#renew update gitcode.com repo):
 
+git status
+git add .
+git commit -m "your commit message"
+git push gitcode main
+
+(update github repo):
 git status
 git add .
 git commit -m "your commit message"
