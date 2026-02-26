@@ -436,12 +436,12 @@ git push -u gitcode main )
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 
 ••••••••••••
-#build and preview
+# build and preview
 
 npm run build
 npm run preview
 
-(#renew update gitcode.com repo):
+(update gitcode.com repo):
 
 git status
 git add .
