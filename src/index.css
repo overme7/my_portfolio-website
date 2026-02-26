@@ -9,6 +9,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, #0909a0 0%, #1ba5d6  100%);
+  background: 
+    linear-gradient(135deg, #3100e4 0%, #c88282 100%),
+    url('/assets/cover.jpg');
+  background-size: cover, 70% 80%;
+  background-position: center, center right;
+  background-repeat: no-repeat, no-repeat;
+  background-blend-mode: normal;
   min-height: 100vh;
 }

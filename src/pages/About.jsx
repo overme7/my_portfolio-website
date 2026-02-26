@@ -75,9 +75,9 @@ function About() {
               <div className="mt-6 p-4 bg-white/5 rounded-xl border border-white/10">
                 <p className="text-sm text-gray-400 mb-2">📱 Add me on WeChat:</p>
                 <div className="flex items-center gap-4">
-                  <img 
-                    src="/images/wechat-qr.png" 
-                    alt="WeChat QR Code" 
+                  <img
+                    src="/assets/wechat-qr.png"
+                    alt="WeChat QR Code"
                     className="w-32 h-32 rounded-lg border-2 border-green-600"
                   />
                   <span className="text-2xl font-mono bg-green-700 px-4 py-2 rounded-lg">11332288999</span>

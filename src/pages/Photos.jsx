@@ -14,10 +14,9 @@ const photoFolders = [
 ]
 
 const localPhotos = [
-  { id: 'local-1', title: 'WeChat QR', url: '/images/wechat-qr.png' },
-  { id: 'local-2', title: 'Screenshot 1', url: '/images/Screen Shot 2026-02-26 at 14.36.06.png' },
-  { id: 'local-3', title: 'Screenshot 2', url: '/images/Screen Shot 2026-02-26 at 14.39.00.png' },
-  { id: 'local-4', title: 'Screenshot 3', url: '/images/Screen Shot 2026-02-26 at 14.39.14.png' },
+  { id: 'local-1', title: 'Screenshot 1', url: '/images/Screen Shot 2026-02-26 at 14.36.06.png' },
+  { id: 'local-2', title: 'Screenshot 2', url: '/images/Screen Shot 2026-02-26 at 14.39.00.png' },
+  { id: 'local-3', title: 'Screenshot 3', url: '/images/Screen Shot 2026-02-26 at 14.39.14.png' },
 ]
 
 const onlinePhotos = [

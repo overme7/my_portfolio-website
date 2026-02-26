@@ -7,9 +7,9 @@ function Home() {
       <section className="min-h-screen flex items-center justify-center px-6 relative">
         {/* 右上角微信二维码 */}
         <div className="absolute top-4 right-4 flex flex-col items-center gap-2 bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
-          <img 
-            src="/images/wechat-qr.png" 
-            alt="WeChat QR Code" 
+          <img
+            src="/assets/wechat-qr.png"
+            alt="WeChat QR Code"
             className="w-32 h-32 rounded-lg border-2 border-green-600"
           />
           <span className="text-2xl font-mono bg-green-700 px-4 py-2 rounded-lg">11332288999</span>
