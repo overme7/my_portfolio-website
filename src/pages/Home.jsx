@@ -4,7 +4,18 @@ function Home() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-6">
+      <section className="min-h-screen flex items-center justify-center px-6 relative">
+        {/* 右上角微信二维码 */}
+        <div className="absolute top-4 right-4 flex flex-col items-center gap-2 bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
+          <img 
+            src="/images/wechat-qr.png" 
+            alt="WeChat QR Code" 
+            className="w-32 h-32 rounded-lg border-2 border-green-600"
+          />
+          <span className="text-2xl font-mono bg-green-700 px-4 py-2 rounded-lg">11332288999</span>
+          <p className="text-sm text-gray-400">Scan or add my WeChat ID directly</p>
+        </div>
+        
         <div className="text-center max-w-4xl">
           <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
             Welcome

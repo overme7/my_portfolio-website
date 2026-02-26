@@ -248,3 +248,35 @@ gitcode.net 实际上就是 CSDN 提供的代码托管服务的一部分。
 ctrl+c ( to stop cloning )
 
 *****************************
+之前已经关联过远程仓库。此时可以直接推送代码，无需重复添加远程仓库。
+
+ 
+  直接推送代码
+既然提示 Your branch is ahead of 'origin/main' by 1 commit，说明本地有未推送的提交。直接运行以下命令即可：
+
+bash
+git push -u origin main
+*****************************
+
+使用 JSX/JavaScript 的注释方式：
+
+方式 1：单行注释（推荐）
+jsx
+{/* Your WeChat ID */}
+{/* <p className="text-sm text-gray-400">Scan or add my WeChat ID directly</p> */}
+方式 2：多行注释
+jsx
+{/*
+  //Your WeChat ID
+  <p className="text-sm text-gray-400">Scan or add my WeChat ID directly</p>
+*/}
+方式 3：HTML 风格注释（只适用于纯 HTML，不推荐在 JSX 中使用）
+jsx
+<!-- //Your WeChat ID -->
+<!-- <p className="text-sm text-gray-400">Scan or add my WeChat ID directly</p> -->
+在 JSX 中推荐使用方式 1 或方式 2，因为 JSX 需要使用 {/* */} 包裹注释内容
+
+
+
+*****************************
+  

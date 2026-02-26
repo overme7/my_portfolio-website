@@ -1,16 +1,72 @@
 import { useState } from 'react'
 
 const vlogs = [
-  { id: 1, title: 'My First Vlog', thumbnail: 'https://via.placeholder.com/600x340?text=Vlog+1', url: 'https://www.youtube.com/embed/dQw4w9WgXcQ' },
-  { id: 2, title: 'Daily Life', thumbnail: 'https://via.placeholder.com/600x340?text=Vlog+2', url: 'https://www.youtube.com/embed/dQw4w9WgXcQ' },
-  { id: 3, title: 'Travel Adventure', thumbnail: 'https://via.placeholder.com/600x340?text=Vlog+3', url: 'https://www.youtube.com/embed/dQw4w9WgXcQ' },
-  { id: 4, title: 'Tutorial Video', thumbnail: 'https://via.placeholder.com/600x340?text=Vlog+4', url: 'https://www.youtube.com/embed/dQw4w9WgXcQ' },
-  { id: 5, title: 'Behind the Scenes', thumbnail: 'https://via.placeholder.com/600x340?text=Vlog+5', url: 'https://www.youtube.com/embed/dQw4w9WgXcQ' },
-  { id: 6, title: 'Special Episode', thumbnail: 'https://via.placeholder.com/600x340?text=Vlog+6', url: 'https://www.youtube.com/embed/dQw4w9WgXcQ' },
+  {
+    id: 1,
+    title: 'My First Vlog (YouTube)',
+    thumbnail: 'https://via.placeholder.com/600x340?text=YouTube',
+    url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    platform: 'youtube'
+  },
+  {
+    id: 2,
+    title: 'Bilibili Video',
+    thumbnail: 'https://via.placeholder.com/600x340?text=Bilibili',
+    url: 'https://www.bilibili.com/video/av54800931/',
+    platform: 'bilibili'
+  },
+  {
+    id: 3,
+    title: 'Local Videos',
+    thumbnail: 'https://via.placeholder.com/600x340?text=Local+Videos',
+    platform: 'local-folder'
+  }
+]
+
+const localVideos = [
+  {
+    id: 'local-1',
+    title: 'Video 1',
+    url: '/videos/video1.mov'
+  },
+  {
+    id: 'local-2',
+    title: 'Video 2',
+    url: '/videos/video1%20copy.mov'
+  }
 ]
 
 function Vlogs() {
   const [selectedVlog, setSelectedVlog] = useState(null)
+  const [showLocalVideos, setShowLocalVideos] = useState(false)
+
+  const renderVideoPlayer = (vlog) => {
+    if (vlog.platform === 'local' || localVideos.some(lv => lv.id === vlog.id)) {
+      const fileType = vlog.url.endsWith('.mov') ? 'video/quicktime' : 'video/mp4'
+      return (
+        <video
+          controls
+          className="w-full h-full rounded-2xl"
+        >
+          <source src={vlog.url} type={fileType} />
+          Your browser does not support the video tag.
+        </video>
+      )
+    }
+
+    const iframeProps = vlog.platform === 'bilibili'
+      ? { scrolling: 'no', border: '0' }
+      : { allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' }
+
+    return (
+      <iframe
+        {...iframeProps}
+        src={vlog.url}
+        className="w-full h-full rounded-2xl"
+        allowFullScreen
+      />
+    )
+  }
 
   return (
     <div className="pt-24 px-6 pb-12">
@@ -23,32 +79,71 @@ function Vlogs() {
         {selectedVlog ? (
           <div className="mb-8">
             <button
-              onClick={() => setSelectedVlog(null)}
+              onClick={() => {
+                setSelectedVlog(null)
+                if (localVideos.some(lv => lv.id === selectedVlog.id)) {
+                  setShowLocalVideos(true)
+                }
+              }}
+              className="mb-4 px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+            >
+              ← {localVideos.some(lv => lv.id === selectedVlog.id) ? 'Back to Local Videos' : 'Back to All Vlogs'}
+            </button>
+            <div className="aspect-video max-w-4xl mx-auto">
+              {renderVideoPlayer(selectedVlog)}
+            </div>
+            <h2 className="text-3xl font-bold mt-6 text-center">{selectedVlog.title}</h2>
+          </div>
+        ) : showLocalVideos ? (
+          <div>
+            <button
+              onClick={() => setShowLocalVideos(false)}
               className="mb-4 px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
             >
               ← Back to All Vlogs
             </button>
-            <div className="aspect-video max-w-4xl mx-auto">
-              <iframe
-                src={selectedVlog.url}
-                className="w-full h-full rounded-2xl"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+            <h2 className="text-3xl font-bold mb-6 text-center">Local Videos</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {localVideos.map((vlog) => (
+                <div
+                  key={vlog.id}
+                  onClick={() => setSelectedVlog(vlog)}
+                  className="group cursor-pointer"
+                >
+                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 transform group-hover:scale-105 transition-all">
+                    <div className="aspect-video bg-gradient-to-br from-green-500 to-emerald-400 flex items-center justify-center">
+                      <span className="text-4xl">▶️</span>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold">{vlog.title}</h3>
+                      <p className="text-gray-400 mt-2">Click to watch</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-            <h2 className="text-3xl font-bold mt-6 text-center">{selectedVlog.title}</h2>
           </div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {vlogs.map((vlog) => (
               <div
                 key={vlog.id}
-                onClick={() => setSelectedVlog(vlog)}
+                onClick={() => {
+                  if (vlog.platform === 'local-folder') {
+                    setShowLocalVideos(true)
+                  } else {
+                    setSelectedVlog(vlog)
+                  }
+                }}
                 className="group cursor-pointer"
               >
                 <div className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 transform group-hover:scale-105 transition-all">
-                  <div className="aspect-video bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                    <span className="text-4xl">▶️</span>
+                  <div className={`aspect-video bg-gradient-to-br ${
+                    vlog.platform === 'bilibili' ? 'from-blue-500 to-cyan-400' :
+                    vlog.platform === 'local-folder' ? 'from-green-500 to-emerald-400' :
+                    'from-purple-500 to-pink-500'
+                  } flex items-center justify-center`}>
+                    <span className="text-4xl">{vlog.platform === 'local-folder' ? '📁' : '▶️'}</span>
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold">{vlog.title}</h3>
