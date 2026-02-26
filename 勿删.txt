@@ -276,7 +276,34 @@ jsx
 <!-- <p className="text-sm text-gray-400">Scan or add my WeChat ID directly</p> -->
 在 JSX 中推荐使用方式 1 或方式 2，因为 JSX 需要使用 {/* */} 包裹注释内容
 
+*****************************
 
+GitCode.com/overme7/my-portfolio-website.git
 
 *****************************
-  
+To renew/update your repository on GitCode.com from local changes:
+
+```bash
+# 1. Check current status
+git status
+
+# 2. Add changed files
+git add .
+
+# 3. Commit changes
+git commit -m "your commit message"
+
+# 4. Push to GitCode
+git push gitcode main
+```
+
+Or to push all changes at once:
+```bash
+git push gitcode main
+```
+
+If you haven't pushed before and created the remote, add it:
+```bash
+git remote add gitcode https://gitcode.com/overme7/my_portfolio-website.git
+git push -u gitcode main
+```
