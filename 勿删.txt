@@ -436,9 +436,7 @@ git push -u gitcode main )
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 
 ••••••••••••
-
-# 构建生产版本
-# 本地预览构建结果
+#build and preview
 
 npm run build
 npm run preview
