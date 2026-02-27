@@ -435,7 +435,8 @@ git push -u gitcode main )
 │  (npm run build) │    │  (Vercel/Netlify等)│    │  (可选但推荐)   │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 
-••••••••••••
+••••••••••••••••••••••••••••••••••
+
 # build and preview
 
 npm run build
