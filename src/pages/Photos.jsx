@@ -1,23 +1,4 @@
-import { useState } from 'react'
-
-const photoFolders = [
-  {
-    id: 1,
-    title: 'Local Photos',
-    platform: 'local-folder'
-  },
-  {
-    id: 2,
-    title: 'Online Photos',
-    platform: 'online-folder'
-  }
-]
-
-const localPhotos = [
-  { id: 'local-1', title: 'Screenshot 1', url: '/images/Screen Shot 2026-02-26 at 14.36.06.png' },
-  { id: 'local-2', title: 'Screenshot 2', url: '/images/Screen Shot 2026-02-26 at 14.39.00.png' },
-  { id: 'local-3', title: 'Screenshot 3', url: '/images/Screen Shot 2026-02-26 at 14.39.14.png' },
-]
+import { useState, useEffect } from 'react'
 
 const onlinePhotos = [
   { id: 1, title: 'Sunset Beach', url: 'https://via.placeholder.com/800x600?text=Photo+1' },
@@ -29,6 +10,42 @@ const onlinePhotos = [
 function Photos() {
   const [selectedPhoto, setSelectedPhoto] = useState(null)
   const [currentFolder, setCurrentFolder] = useState(null)
+  const [localPhotos, setLocalPhotos] = useState([])
+
+  // Load images from public/images folder dynamically
+  useEffect(() => {
+    const loadLocalImages = async () => {
+      try {
+        // List of common image extensions to look for
+        const imageExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg']
+
+        // Import all images from the images folder
+        const imageModules = import.meta.glob('/public/images/*.{png,jpg,jpeg,gif,webp,svg}', {
+          eager: true,
+          query: { url: true }
+        })
+
+        const images = Object.entries(imageModules).map(([path, module], index) => {
+          // Extract filename from path
+          const fileName = path.split('/').pop()
+          return {
+            id: `local-${index}`,
+            title: fileName,
+            url: path.replace('/public', '')
+          }
+        })
+
+        // Sort by filename to get latest (assuming timestamp in filename)
+        images.sort((a, b) => b.title.localeCompare(a.title))
+
+        setLocalPhotos(images)
+      } catch (error) {
+        console.error('Error loading local images:', error)
+      }
+    }
+
+    loadLocalImages()
+  }, [])
 
   const getPhotosForFolder = () => {
     if (currentFolder === 'local') {
@@ -38,6 +55,24 @@ function Photos() {
     }
     return []
   }
+
+  // Get latest local photo for Photo Gallery cover
+  const latestLocalPhoto = localPhotos.length > 0 ? localPhotos[0] : null
+
+  const photoFolders = [
+    {
+      id: 1,
+      title: 'Local Photos',
+      platform: 'local-folder',
+      cover: latestLocalPhoto?.url || '/assets/local-folder-cover.jpg'
+    },
+    {
+      id: 2,
+      title: 'Online Photos',
+      platform: 'online-folder',
+      cover: '/assets/online-folder-cover.jpg'
+    }
+  ]
 
   return (
     <div className="pt-24 px-6 pb-12">
@@ -111,11 +146,7 @@ function Photos() {
                 className="group cursor-pointer"
               >
                 <div className={`bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 transform group-hover:scale-105 transition-all`}>
-                  <div className={`aspect-video bg-gradient-to-br ${
-                    folder.platform === 'local-folder' ? 'from-green-500 to-emerald-400' : 'from-blue-500 to-purple-400'
-                  } flex items-center justify-center`}>
-                    <span className="text-4xl">{folder.platform === 'local-folder' ? '📁' : '🌐'}</span>
-                  </div>
+                  <img src={folder.cover} alt={folder.title} className="w-full h-full object-cover" />
                   <div className="p-6">
                     <h3 className="text-xl font-bold">{folder.title}</h3>
                     <p className="text-gray-400 mt-2">Click to browse</p>

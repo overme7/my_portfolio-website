@@ -6,20 +6,23 @@ const vlogs = [
     title: 'My First Vlog (YouTube)',
     thumbnail: 'https://via.placeholder.com/600x340?text=YouTube',
     url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    platform: 'youtube'
+    platform: 'youtube',
+    cover: '/assets/youtube-folder-cover.jpg'
   },
   {
     id: 2,
     title: 'Bilibili Video',
     thumbnail: 'https://via.placeholder.com/600x340?text=Bilibili',
     url: 'https://www.bilibili.com/video/av54800931/',
-    platform: 'bilibili'
+    platform: 'bilibili',
+    cover: '/assets/bilibili-folder-cover.jpg'
   },
   {
     id: 3,
     title: 'Local Videos',
     thumbnail: 'https://via.placeholder.com/600x340?text=Local+Videos',
-    platform: 'local-folder'
+    platform: 'local-folder',
+    cover: '/assets/local-videos-folder-cover.jpg'
   }
 ]
 
@@ -138,13 +141,7 @@ function Vlogs() {
                 className="group cursor-pointer"
               >
                 <div className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 transform group-hover:scale-105 transition-all">
-                  <div className={`aspect-video bg-gradient-to-br ${
-                    vlog.platform === 'bilibili' ? 'from-blue-500 to-cyan-400' :
-                    vlog.platform === 'local-folder' ? 'from-green-500 to-emerald-400' :
-                    'from-purple-500 to-pink-500'
-                  } flex items-center justify-center`}>
-                    <span className="text-4xl">{vlog.platform === 'local-folder' ? '📁' : '▶️'}</span>
-                  </div>
+                  <img src={vlog.cover} alt={vlog.title} className="w-full h-full object-cover" />
                   <div className="p-6">
                     <h3 className="text-xl font-bold">{vlog.title}</h3>
                     <p className="text-gray-400 mt-2">Click to watch</p>

@@ -9,12 +9,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: 
-    linear-gradient(135deg, #3100e4 0%, #c88282 100%),
-    url('/assets/cover.jpg');
-  background-size: cover, 70% 80%;
-  background-position: center, center right;
+  background-color: #3100e4;
+  background-image:
+  linear-gradient(135deg, rgba(228, 0, 0, 0.6) 0%, rgb(194, 200, 130) 100%),
+  url('/assets/cover.jpg');
+  background-size: 100% 100%, 100% 80%;
+  background-position: center, 90% 23%;
   background-repeat: no-repeat, no-repeat;
-  background-blend-mode: normal;
   min-height: 100vh;
 }

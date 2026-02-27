@@ -2,11 +2,18 @@ import { Link } from 'react-router-dom'
 
 function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 bg-black/50 backdrop-blur-md z-50 border-b border-white/10">
+    <header className="fixed top-0 left-0 right-0 bg-gradient-to-r from-black/50 to-black backdrop-blur-md z-50 border-b border-white/10">
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-            关老师与小雨老师的Live with Culture 
+          <Link to="/" className="relative text-2xl font-bold">
+            {/* Gradient text (bottom layer - shows on left) */}
+            <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+              Life with Calligraphy
+            </span>
+            {/* Solid text (top layer - shows on right with mask) */}
+            <span className="absolute inset-0 text-white [mask-image:linear-gradient(to_right,transparent_0%,transparent_50%,black_100%)] pointer-events-none">
+              Life with Calligraphy
+            </span>
           </Link>
           <div className="flex space-x-8">
             <Link to="/" className="hover:text-purple-400 transition-colors">Home</Link>

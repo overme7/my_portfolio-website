@@ -9,7 +9,7 @@ import About from './pages/About'
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen text-white">
+      <div className="min-h-screen text-white bg-transparent">
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
