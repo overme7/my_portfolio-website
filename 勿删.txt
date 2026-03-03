@@ -436,7 +436,9 @@ git push -u gitcode main )
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 
 ••••••••••••••••••••••••••••••••••
-
+git remote add gitcode https://gitcode.com/overme7/my_portfolio-website.git
+git remote add gitcode https://github.com/overme7/my_portfolio-website.git
+git push/pull gitcode main
 # build and preview
 
 npm run build
